@@ -12,17 +12,23 @@ const TodoList = (props) => {
 
   return (
     <>
-      {props.data
-        .sort((a, b) => b.timeStamp - a.timeStamp) //sorting data
-        .map((todo) => (
-          <Container>
-            <Todo
-              todoItem={todo}
-              onMarkTodo={markTodo}
-              onDeleteTodo={deleteTodo}
-            />
-          </Container>
-        ))}
+      {props.data.length !== 0 ? (
+        props.data
+          .sort((a, b) => b.timeStamp - a.timeStamp) //sorting data
+          .map((todo) => (
+            <Container>
+              <Todo
+                todoItem={todo}
+                onMarkTodo={markTodo}
+                onDeleteTodo={deleteTodo}
+              />
+            </Container>
+          ))
+      ) : (
+        <h2 style={{ textAlign: "center" }}>
+          No Todo list here. Please write something to add Todo
+        </h2>
+      )}
     </>
   );
 };

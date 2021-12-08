@@ -8,17 +8,19 @@ function App() {
 
   // function for adding new todo
   const addTodo = (data) => {
-    setTodoList((prev) => {
-      return [
-        ...prev,
-        {
-          task: data,
-          id: Math.random().toString(),
-          mark: false,
-          timeStamp: new Date(),
-        },
-      ];
-    });
+    if (data) {
+      setTodoList((prev) => {
+        return [
+          ...prev,
+          {
+            task: data,
+            id: Math.random().toString(),
+            mark: false,
+            timeStamp: new Date(),
+          },
+        ];
+      });
+    }
   };
 
   // function for marking todo true or false

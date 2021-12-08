@@ -16,7 +16,7 @@ const TodoList = (props) => {
         props.data
           .sort((a, b) => b.timeStamp - a.timeStamp) //sorting data
           .map((todo) => (
-            <Container>
+            <Container key={todo.id}>
               <Todo
                 todoItem={todo}
                 onMarkTodo={markTodo}
